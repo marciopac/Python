@@ -1,1 +1,27 @@
+import random
 
+def adivinhar_numero(numero_min, numero_max):
+    numero_secreto = random.randint(numero_min, numero_max)
+    tentativas = 0
+
+    while True:
+        tentativa = int(input("Digite um número: "))
+        tentativas += 1
+
+        if tentativa < numero_secreto:
+            print("Tente um número maior.")
+        elif tentativa > numero_secreto:
+            print("Tente um número menor.")
+        else:
+            print(f"Parabéns! Você acertou o número em {tentativas} tentativas.")
+            break
+
+        # faz uma verificacao se o palpite está perto ou longe do número secreto
+        if abs(tentativa - numero_secreto) <= 10:
+            print("Está quente!")
+        else:
+            print("Está frio!")
+
+numero_min = 1 #define o valor minimo para criar o random
+numero_max = 100 #define o valor maximmo para criar o random
+adivinhar_numero(numero_min, numero_max)
